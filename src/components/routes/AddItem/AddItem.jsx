@@ -1,7 +1,7 @@
-
+import Swal from 'sweetalert2'
 
 const AddItem = () => {
-    const handleAddItem = (e) => {
+    const handleAddCraft = (e) => {
         e.preventDefault();
         // const {user} = useAuth() || {}
     
@@ -11,12 +11,34 @@ const AddItem = () => {
         const type = e.target.type.value;
         // const email = user.email;
          console.log(name, price, image, type)
-         const newItem = {name,price,image,type}
+         const newCraft = {name,price,image,type}
+         console.log(newCraft);
+
+         fetch('http://localhost:5000/craft',{
+            method:'POST',
+            headers: {
+        "Content-type": "application/json"
+            },
+            body: JSON.stringify(newCraft)
+        
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'User added success',
+                    icon: 'Success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
     }
     return (
         <div className="gadgetContainer pt-10">
              <div className="shadow-lg p-5 border dark:bg-[#1a2641d5]">
-            <form onSubmit={handleAddItem}>
+            <form onSubmit={handleAddCraft}>
                 <div className="flex gap-8 ">
                     <div className="flex-1">
                         <label className="block mb-2 dark:text-white" htmlFor="name">
