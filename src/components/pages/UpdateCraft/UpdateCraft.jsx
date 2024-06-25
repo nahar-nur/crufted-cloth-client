@@ -15,24 +15,24 @@ const UpdateCraft = () => {
         const type = e.target.type.value;
         // const email = user.email;
          console.log(name, price, image, type)
-         const newCraft = {name,price,image,type}
-         console.log(newCraft);
+         const updateCraft = {name,price,image,type}
+         console.log(updateCraft);
 
-         fetch('http://localhost:5000/craft',{
-            method:'POST',
+         fetch(`http://localhost:5000/craft/${_id}`,{
+            method:'PUT',
             headers: {
         "Content-type": "application/json"
             },
-            body: JSON.stringify(newCraft)
+            body: JSON.stringify(updateCraft)
         
         })
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
-            if(data.insertedId){
+            if(data.modifiedCount > 0){
                 Swal.fire({
                     title: 'Success!',
-                    text: 'User added success',
+                    text: 'Craft updadated successfully',
                     icon: 'Success',
                     confirmButtonText: 'Cool'
                   })
@@ -41,7 +41,7 @@ const UpdateCraft = () => {
     }
     return (
         <div className="gadgetContainer pt-10 my-12">
-            <h3 className="text-3xl mb-12">Update Craft Item</h3>
+            <h3 className="text-3xl mb-12git add m-0.5">Update Craft Item</h3>
             <div className="shadow-lg p-5 border dark:bg-[#1a2641d5]">
                 <form onSubmit={handleUpdateCraft}>
                     <div className="flex gap-8 ">
