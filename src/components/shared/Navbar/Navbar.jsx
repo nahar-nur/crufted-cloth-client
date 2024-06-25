@@ -17,7 +17,7 @@ const Navbar = () => {
 } to='/addItem'>Add Craft Item</NavLink></a></li>
         <li><a><NavLink className={({ isActive }) =>
   isActive ? 'text-primary font-bold' : 'font-bold'
-} to='/myList'>My Art & Craft List</NavLink></a></li>
+} to='/craftList'>My Art & Craft List</NavLink></a></li>
 
 
     </>

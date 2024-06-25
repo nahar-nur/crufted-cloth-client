@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const CraftCard = ({ craft }) => {
     const { _id, name, price, image, type } = craft
@@ -49,7 +50,9 @@ const CraftCard = ({ craft }) => {
                     {/* </div> */}
                     <div className="join join-vertical lg:join-horizontal bg-[#FF497C]">
                         <button className="btn join-item bg-pink-300">View</button>
+                        <Link to={`/updateCraft/${_id}`}>
                         <button className="btn join-item bg-sky-400">Edit</button>
+                        </Link>
                         <button
                         onClick={()=>handleDelete(_id)}
                          className="btn join-item bg-yellow-300">Delete
