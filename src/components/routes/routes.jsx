@@ -9,6 +9,8 @@ import Error from "../pages/Error/ErrorPages";
 import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
 import MyCraftList from "./MyCraftList/MyCraftList";
 import Crafts from "../routes/Crafts/Crafts";
+import Login from "./Login/Login";
+import Register from "./Register/Register";
 
 
 const routes = createBrowserRouter([
@@ -42,6 +44,14 @@ const routes = createBrowserRouter([
                 path: '/craftList',
                 element: <MyCraftList></MyCraftList>,
                 loader: () => fetch('http://localhost:5000/craft')
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     }
