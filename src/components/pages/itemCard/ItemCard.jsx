@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const ItemCard = ({craft}) => {
     const { _id, name, price, image, type } = craft
@@ -11,9 +12,11 @@ const ItemCard = ({craft}) => {
   </figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <p>type{type}</p>
     <div className="card-actions justify-end">
+        <Link to={`/crafts/${_id}`}>
       <button className="btn btn-primary">View Details</button>
+      </Link>
     </div>
   </div>
 </div>
