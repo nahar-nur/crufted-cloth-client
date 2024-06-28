@@ -1,8 +1,20 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## I have Created Art and Craft Store wevsite category name is Textile Arts. My Project Name is CruftedCloth.
+# CruftedCloth
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+### Live Link :
+
+
+### key Features
+
+
+- Textile Arts and Craft Item Listing
+- craft irem Page According To subCategory
+- Show craft item Details 
+- User can be add craft item to My Art & Craft List
+- Add,Update Craft Item
+- Authentication (email , password, googleLogin)
+- Show user added data in All Art & Craft page in a table
+
