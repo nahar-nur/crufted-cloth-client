@@ -4,7 +4,8 @@ const Crafts = () => {
     const craft = useLoaderData()
     // const {id}= useParams()
     // const craft = crafts.find(craft=> craft.id==id)
-    const { _id, name, price, image, type } = craft
+    const { name, price, image, category, subCategory, shortDescription, stockStatus,
+        customization, procesingTime, rating, userName, userEmail} = craft
     return (
         <div className="mb-6 max-w-6xl mx-auto">
             <h3 className="text-3xl font-medium my-6">Arts & Craft Details</h3>
@@ -14,8 +15,13 @@ const Crafts = () => {
             <img src={image}alt="" />
             <br />
            
-            <p>Type:{type}</p>
-            <p>Details</p>
+            <p>Category:{category}</p>
+            <p>Type:{subCategory}</p>
+            <p>Description:{shortDescription}</p>
+            <h4>Avaiable Stock : {stockStatus}</h4>
+            <h3>Customization : {customization}</h3>
+            <p> Proceessing Time :{procesingTime}</p>
+            <h3>Rating : {rating}</h3>
         </div>
     );
 };

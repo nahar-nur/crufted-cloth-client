@@ -1,11 +1,11 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../../../providers/AuthProvider";
+import { AuthContext } from "../../../providers/AuthProvider";
 // import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
-    // const { createUser } = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
     const handleRegister = e => {
         e.preventDefault();
         console.log(e.currentTarget);
@@ -18,13 +18,14 @@ const Register = () => {
         console.log(name, photo, email, password);
 
         // createUser
-        // createUser(email, password)
-            // .then(result => {
-                // console.log(result.user);
-            // })
-            // .catch(error => {
-                // console.log(error);
-            // })
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error)
+    })
     }
     return (
 

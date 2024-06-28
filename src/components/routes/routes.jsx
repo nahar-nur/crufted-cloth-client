@@ -11,6 +11,8 @@ import MyCraftList from "./MyCraftList/MyCraftList";
 import Crafts from "../routes/Crafts/Crafts";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
+import AllCrafts from "../pages/AllCrafts/AllCrafts";
+import PrivateRoute from "./PrivateRoute";
 
 
 const routes = createBrowserRouter([
@@ -52,6 +54,10 @@ const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/allCrafts',
+                element:<AllCrafts></AllCrafts>
             }
         ]
     }

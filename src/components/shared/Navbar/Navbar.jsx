@@ -11,7 +11,7 @@ const Navbar = () => {
 } to='/'>Home</NavLink></a></li>
         <li><a><NavLink className={({ isActive }) =>
   isActive ? 'text-primary font-bold' : 'font-bold'
-} to='/allItems'>All Art & Craft Items</NavLink></a></li>
+} to='/allCrafts'>All Art & Craft Items</NavLink></a></li>
         <li><a><NavLink className={({ isActive }) =>
   isActive ? 'text-primary font-bold' : 'font-bold'
 } to='/addItem'>Add Craft Item</NavLink></a></li>
@@ -34,7 +34,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Crafted Cloth</a>
+                    <a className="btn btn-ghost text-xl text-pink-500">Crafted Cloth</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

@@ -2,7 +2,8 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const CraftCard = ({ craft }) => {
-    const { _id, name, price, image, type } = craft
+    const {_id, name, price, image, category, subCategory, shortDescription, stockStatus,
+    customization, processingTime, rating, userName, userEmail} = craft
     const handleDelete = _id => {
         console.log(_id);
         Swal.fire({
@@ -42,8 +43,16 @@ const CraftCard = ({ craft }) => {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
-                    <p>{type}</p>
-                    <p>{price}</p>
+                    {/* <h3>Category : {category}</h3> */}
+                    <p>Type :{subCategory}</p>
+                    {/* <p>Description :{shortDescription}</p> */}
+                    <p>Price : $ {price}</p>
+                    <h5>Stock : {stockStatus}</h5>
+                    <p>Customization : {customization}</p>
+                    {/* <h6>Processing Time : {processingTime}</h6> */}
+                    <h3>Rating : {rating}</h3>
+                    <p>User Name :{userName}</p>
+                    <p> Email:{userEmail}</p>
 
                     {/* <div className="card-actions justify-end"> */}
                     {/* <button className="btn btn-primary">View Details</button> */}
