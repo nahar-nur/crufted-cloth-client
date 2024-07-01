@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-
+// http://localhost:5000
 const CraftCard = ({ craft }) => {
     const {_id, name, price, image, category, subCategory, shortDescription, stockStatus,
     customization, processingTime, rating, userName, userEmail} = craft

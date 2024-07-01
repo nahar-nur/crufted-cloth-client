@@ -1,33 +1,43 @@
 
 import app from "../firebase/firebseconfig";
-import { getAuth, createUserWithEmailAndPassword ,onAuthStateChanged,signInWithEmailAndPassword} from "firebase/auth";
+import {getAuth, GoogleAuthProvider, createUserWithEmailAndPassword ,onAuthStateChanged,signInWithEmailAndPassword} from "firebase/auth";
 import { createContext, useState, useEffect} from "react";
 import { signOut } from "firebase/auth";
 
-
+// import auth from '../firebase/firebseconfig'
+// 
 
 export const AuthContext = createContext();
+const googleProvider = new GoogleAuthProvider();
 const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState(null);
-    // const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
-        // setLoading(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
-    const logOut = () => {
-        // setLoading(true)
-        return signOut(auth)
-    }
-    const signIn = (email, password) => {
-        // setLoading(true);
+    
+    
+    
+    
+    const signInUser = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
+    }
+    const signInWithGoogle = ()=>{
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider);
+    }
+    const logOut = () => {
+        setLoading(true)
+        return signOut(auth)
     }
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('user in the onAuthStateChanged', currentUser);
             setUser(currentUser);
             setLoading(false);
@@ -39,9 +49,11 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
-        // loading,
+        loading,
+        setLoading,
         createUser,
-        signIn,
+        signInUser,
+        signInWithGoogle,
         logOut
 
     }

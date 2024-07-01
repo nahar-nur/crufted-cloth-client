@@ -2,9 +2,16 @@ import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 import userDefaultPic from '../../../assets/textileArts/user.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
-
+    const {user, logOut} =useContext(AuthContext);
+    const handleLogOut =()=>{
+        logOut()
+        .then(()=>console.log('user logged out successfully'))
+        .catch(error=>console.log(error));
+    }
     const navLinks = <>
         <li><a><NavLink className={({ isActive }) =>
   isActive ? 'text-primary font-bold' : 'font-bold'
@@ -47,9 +54,17 @@ const Navbar = () => {
                             <img alt="Tailwind CSS Navbar component" src={userDefaultPic} />
                         </div>
                         </div>
-                           <Link to='/login' >
-                           <btn className="btn btn-primary">LOGIN</btn>
+                        
+                        {
+                            user ? <>
+                            <span>{user.email}</span>
+                            <btn  onClick={handleLogOut} className="btn btn-secondary btn-sm"> Sign Out</btn>
+                            </>
+                          : <Link to='/login' >
+                           <btn className="btn btn-primary btn-sm">LOGIN</btn>
                        </Link>
+                        }
+                       
                         
 
                        

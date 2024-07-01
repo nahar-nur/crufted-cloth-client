@@ -1,13 +1,14 @@
 
 // import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from "react";
 // import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signInUser, signInWithGoogle } = useContext(AuthContext)
+    const navigate = useNavigate();
     const handleLogin = e => {
 
         e.preventDefault();
@@ -18,16 +19,25 @@ const Login = () => {
         const password = form.get('password')
 
         console.log(email, password);
-        signIn(email, password)
+        signInUser(email, password)
             .then(result => {
                 const user = result.user
                 console.log(user);
+                e.target.reset();
+                navigate('/')
             })
             .catch(error => {
                 console.log(error);
             })
 
     }
+       const handleGoogleSignIn = ()=>{
+        signInWithGoogle()
+        .then(result=>{
+            console.log((result.user))
+            .cath(error=>console.log(error))
+        })
+       }
     return (
         <div className="mb-12">
             {/* <Helmet><title>Crafted Cloth | Login</title></Helmet> */}
@@ -52,8 +62,15 @@ const Login = () => {
                     <button className="btn btn-primary">Login</button>
                 </div>
             </form>
-            <p className="text-center mt-4"> Do not have an account? <Link to='/register' className="text-purple-900  font-semibold ">Register</Link></p>
+
+            <p className="text-center mt-4"> Do not have an account? <Link to='/register' >
+             
+            <button className="btn btn-link ">Register </button>
+            </Link></p>
+            
+            <p><button onClick={handleGoogleSignIn} className="btn btn-ghost">Google</button></p>
         </div>
+        
 
 
 

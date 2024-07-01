@@ -20,8 +20,22 @@ const Register = () => {
         // createUser
         createUser(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                // const user = result.user;
+                console.log(result.user);
+                // new user has been created
+                const user = {email};
+                fetch('http://localhost:5000/user',{
+                    method: 'POST',
+                    headers: {
+                        'content-type' : 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                    
+                })
+                .then(res=> res.json())
+                .then(data =>{
+                    console.log(data);
+                })
             })
             .catch(error => {
                 console.log(error)

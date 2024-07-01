@@ -7,7 +7,7 @@ const Footer = () => {
   <aside>
     <img className="w-[120px] h-[120px]" src={logo} alt="" />
     <p className="text-2xl font-medium text-pink-500">
-      Crufted Cloth Ltd.
+      Crafted Cloth Ltd.
       
     </p>
     

@@ -57,7 +57,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/allCrafts',
-                element:<AllCrafts></AllCrafts>
+                element:<PrivateRoute><AllCrafts></AllCrafts></PrivateRoute>
             }
         ]
     }
