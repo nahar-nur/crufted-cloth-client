@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/addItem',
-                element: <AddItem></AddItem>
+                element: <PrivateRoute><AddItem></AddItem></PrivateRoute>
             },
             {
                 path: '/updateCraft/:id',
@@ -38,13 +38,13 @@ const routes = createBrowserRouter([
             },
             {
                 path:'Crafts/:id',
-                element:<Crafts></Crafts>,
+                element:<PrivateRoute><Crafts></Crafts></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`)
                 
             },
             {
                 path: '/craftList',
-                element: <MyCraftList></MyCraftList>,
+                element:<PrivateRoute><MyCraftList></MyCraftList></PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/craft')
             },
             {
