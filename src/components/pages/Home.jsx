@@ -4,6 +4,8 @@ import ItemCard from "./itemCard/ItemCard";
 import Banner from "../pages/Banner/Banner";
 import LatestCraft from "./LatestCraft/LatestCraft";
 import { Tooltip } from 'react-tooltip';
+import { Typewriter } from 'react-simple-typewriter'
+
 
 
 const Home = () => {
@@ -16,7 +18,25 @@ const Home = () => {
                 <a data-tooltip-id="my-tooltip" data-tooltip-content="Hello Visitor!">
                     ◕‿‿◕
                 </a>
-                <h3 className="text-3xl text-center font-semibold mt-16 mb-16">Crafts Items </h3>
+                {/* Typewriter */}
+
+                <h3 className="text-3xl text-center font-semibold mt-16 mb-16 text-pink-400">
+                    <Typewriter
+                        cursor
+                        cursorBlinking
+                        delaySpeed={1000}
+                        deleteSpeed={25}
+                        loop={0}
+                        typeSpeed={75}
+                        words={[
+                            'Crated Items',
+                            'Welcome to',
+                            'Crafted Items',
+                            'Please visit our Crafted Textile',
+                            
+                        ]}
+                    />
+                </h3>
                 <a data-tooltip-id="my-tooltip" data-tooltip-content="Have a nice welcome!">
                     ◕‿‿◕
                 </a>
