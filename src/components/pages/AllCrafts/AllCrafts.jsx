@@ -5,7 +5,7 @@ import AllCraftsRow from "./AllCraftsRow";
 const AllCrafts = () => {
     const {user} = useContext(AuthContext)
     const [allCrafts, setAllCrafts]=useState([]);
-    const url = `http://localhost:5000/craft?email= ${user?.email}`
+    const url = `https://crufted-cloth-server.vercel.app/craft?email= ${user?.email}`
     useEffect(()=>{
         fetch(url)
         .then(res=> res.json())

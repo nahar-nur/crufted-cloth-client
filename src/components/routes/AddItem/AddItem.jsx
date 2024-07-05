@@ -23,7 +23,7 @@ const AddItem = () => {
         const newCraft = { name, price, image, category, subCategory, shortDescription, stockStatus, customization, procesingTime, rating, userName, userEmail }
         console.log(newCraft);
 
-        fetch('http://localhost:5000/craft', {
+        fetch('https://crufted-cloth-server.vercel.app/craft', {
             method: 'POST',
             headers: {
                 "Content-type": "application/json"

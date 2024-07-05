@@ -24,7 +24,7 @@ const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/craft')
+                loader: () => fetch('https://crufted-cloth-server.vercel.app/craft')
 
             },
             {
@@ -34,18 +34,18 @@ const routes = createBrowserRouter([
             {
                 path: '/updateCraft/:id',
                 element: <UpdateCraft></UpdateCraft>,
-                loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`)
+                loader: ({ params }) => fetch(`https://crufted-cloth-server.vercel.app/craft/${params.id}`)
             },
             {
                 path:'Crafts/:id',
                 element:<PrivateRoute><Crafts></Crafts></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/craft/${params.id}`)
+                loader: ({ params }) => fetch(`https://crufted-cloth-server.vercel.app/craft/${params.id}`)
                 
             },
             {
                 path: '/craftList',
                 element:<PrivateRoute><MyCraftList></MyCraftList></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/craft')
+                loader: () => fetch('https://crufted-cloth-server.vercel.app/craft')
             },
             {
                 path:'/login',

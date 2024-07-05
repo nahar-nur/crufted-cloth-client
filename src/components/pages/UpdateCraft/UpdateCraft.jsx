@@ -27,7 +27,7 @@ const UpdateCraft = () => {
             customization, procesingTime, rating }
             console.log(upadateCraft);
 
-         fetch(`http://localhost:5000/craft/${_id}`,{
+         fetch(`https://crufted-cloth-server.vercel.app/craft/${_id}`,{
             method:'PUT',
             headers: {
         "Content-type": "application/json"
